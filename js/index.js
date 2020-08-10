@@ -1,13 +1,23 @@
 // Your code goes here
 const body = document.querySelector('body');
 body.addEventListener('click', (element) => {
-  element.target.style.backgroundColor = 'cyan';
+    element.stopPropagation();
+    element.target.style.backgroundColor = 'cyan';
+});
+body.addEventListener('mouseenter', (element) => {
+    element.stopPropagation();
+    console.log('Hello!!!')
+});
+body.addEventListener('mouseleave', (element) => {
+    element.stopPropagation();
+    console.log('Come Back!!!')
 });
 body.addEventListener('dblclick', (element) => {
     element.target.style.backgroundColor = 'white';
 });
 const image = document.querySelector('img');
 image.addEventListener('mouseenter', (element) => {
+    element.stopPropagation();
     console.log('vroom vroom');
 });
 image.addEventListener('mouseleave', (element) => {
@@ -35,4 +45,9 @@ body.addEventListener('cut', (element) => {
 });
 body.addEventListener('contextmenu', (element) => {
     console.log('Stop hitting that button!')
+})
+const navigation = document.querySelectorAll('nav a')
+navigation.addEventListener('click', (event) => {
+    event.stopPropagation();
+    event.preventDefault();
 })
